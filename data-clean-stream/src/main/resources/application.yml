@@ -1,0 +1,18 @@
+spring.cloud.stream:
+  bindings:
+    output:
+      destination: testEmbeddedOut
+    input:
+      destination: testEmbeddedIn
+      group: embeddedKafkaApplication
+  kafka.streams:
+    #binder.applicationId: cleanStream
+    default:
+      consumer:
+        keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        valueSerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      producer:
+        keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        valueSerde: org.laughing.data.clean.data.DataClassSerde
+#kafka:
+#  bootstrap-servers: ${spring.cloud.stream.kafka.binder.brokers}
