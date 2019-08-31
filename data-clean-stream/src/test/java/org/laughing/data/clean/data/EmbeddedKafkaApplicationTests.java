@@ -81,6 +81,7 @@ public class EmbeddedKafkaApplicationTests {
 	public static void setup() {
 		final String brokersAsString = embeddedKafka.getEmbeddedKafka().getBrokersAsString();
 		System.setProperty("spring.cloud.stream.kafka.binder.brokers", brokersAsString);
+		System.setProperty("spring.kafka.bootstrap-servers", brokersAsString);
 		log.info("spring.cloud.stream.kafka.binder.brokers set to " + brokersAsString);
 	}
 
